@@ -42,4 +42,41 @@ router.delete('/services/:id', function (req, res) {
     });
 });
 
+router.get('/works/', function (req, res) {
+    Work.find({}).populate('service').exec(function (err, works) {
+        if (err)
+            res.status(500).send('Server error');
+        res.json(works);
+    })
+});
+
+router.post('/works/', function (req, res) {
+    // TODO: Validation
+    Work.create(req.body, function (err, work) {
+        if (err)
+            res.status(500).send('Server error');
+        Service.update({_id: work.service}, {$push: {works: work._id}}, function (err) {
+            if (err)
+                res.status(500).send('Server error');
+            res.json({
+                message: 'Saved'
+            });
+        });
+    });
+});
+
+router.delete('/works/:id', function (req, res) {
+    Work.findByIdAndRemove(req.params.id, function (err, work) {
+        if (err)
+            res.status(500).send('Server error');
+        Service.update({_id: work.service}, {$pull: {works: work._id}}, function (err) {
+            if (err)
+                res.status(500).send('Server error');
+            res.json({
+                message: 'Deleted'
+            });
+        });
+    });
+});
+
 module.exports = router;
