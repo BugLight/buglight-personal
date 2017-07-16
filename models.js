@@ -3,19 +3,41 @@ const mongoose = require('mongoose'),
     {Types: {ObjectId}} = Schema;
 
 let serviceSchema = Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     description: String,
-    cost: Number,
+    cost: {
+        type: Number,
+        min: 0
+    },
     works: [{type: ObjectId, ref: 'Work'}]
 });
 
 let workSchema = Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     description: String,
-    customer: String,
-    repository_url: String,
-    project_url: String,
-    service: {type: ObjectId, ref: 'Service'}
+    customer: {
+        type: String,
+        required: true
+    },
+    repository_url: {
+        type: String,
+        match: /^https?:\/\/\w+(\.\w+)+[\/.\w-]*$/
+    },
+    project_url: {
+        type: String,
+        match: /^https?:\/\/\w+(\.\w+)+[\/.\w-]*$/
+    },
+    service: {
+        type: ObjectId,
+        ref: 'Service',
+        required: true
+    }
 });
 
 const models = {
