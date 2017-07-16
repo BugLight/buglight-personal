@@ -50,4 +50,19 @@ router.get('/works/', function (req, res) {
     })
 });
 
+router.post('/works/', function (req, res) {
+    // TODO: Validation
+    Work.create(req.body, function (err, work) {
+        if (err)
+            res.status(500).send('Server error');
+        Service.update({_id: work.service}, {$push: {works: work._id}}, function (err) {
+            if (err)
+                res.status(500).send('Server error');
+            res.json({
+                message: 'Saved'
+            });
+        });
+    });
+});
+
 module.exports = router;
