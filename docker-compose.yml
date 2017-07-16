@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: buglight/buglight-personal
+    env_file:
+      - app.env
+    command: npm start
+    ports:
+      - 80:3000
+    links:
+      - mongo
+
+  mongo:
+    image: mongo
+    volumes:
+      - /data/db:/data/db
