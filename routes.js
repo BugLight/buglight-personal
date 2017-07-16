@@ -42,4 +42,12 @@ router.delete('/services/:id', function (req, res) {
     });
 });
 
+router.get('/works/', function (req, res) {
+    Work.find({}).populate('service').exec(function (err, works) {
+        if (err)
+            res.status(500).send('Server error');
+        res.json(works);
+    })
+});
+
 module.exports = router;
