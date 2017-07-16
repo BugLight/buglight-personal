@@ -1,0 +1,19 @@
+{
+  "name": "buglight-personal",
+  "version": "0.1.0",
+  "description": "Buglight's personal web site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BugLight/buglight-personal.git"
+  },
+  "author": "Buglight <buglight@kistriver.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BugLight/buglight-personal/issues"
+  },
+  "homepage": "https://github.com/BugLight/buglight-personal#readme"
+}
