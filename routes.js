@@ -65,4 +65,18 @@ router.post('/works/', function (req, res) {
     });
 });
 
+router.delete('/works/:id', function (req, res) {
+    Work.findByIdAndRemove(req.params.id, function (err, work) {
+        if (err)
+            res.status(500).send('Server error');
+        Service.update({_id: work.service}, {$pull: {works: work._id}}, function (err) {
+            if (err)
+                res.status(500).send('Server error');
+            res.json({
+                message: 'Deleted'
+            });
+        });
+    });
+});
+
 module.exports = router;
