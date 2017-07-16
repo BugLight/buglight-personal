@@ -19,6 +19,7 @@
   "homepage": "https://github.com/BugLight/buglight-personal#readme",
   "dependencies": {
     "express": "^4.15.3",
+    "mongoose": "^4.11.3",
     "pug": "^2.0.0-rc.2"
   }
 }
