@@ -32,4 +32,14 @@ router.post('/services/', function (req, res) {
     });
 });
 
+router.delete('/services/:id', function (req, res) {
+    Service.remove({_id: req.params.id}, function (err) {
+        if (err)
+            res.status(500).send('Server error');
+        res.json({
+            message: 'Deleted'
+        });
+    });
+});
+
 module.exports = router;
