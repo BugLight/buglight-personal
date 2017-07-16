@@ -4,6 +4,7 @@
   "description": "Buglight's personal web site",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/BugLight/buglight-personal/issues"
   },
-  "homepage": "https://github.com/BugLight/buglight-personal#readme"
+  "homepage": "https://github.com/BugLight/buglight-personal#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }
