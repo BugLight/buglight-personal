@@ -35,6 +35,14 @@ let workSchema = Schema({
     },
     service: {
         type: ObjectId,
+        validate: {
+            isAsync: true,
+            validator: function (v, callback) {
+                models.Service.findOne({_id: v}, function (err, service) {
+                    callback(!err && service);
+                });
+            }
+        },
         ref: 'Service',
         required: true
     }
