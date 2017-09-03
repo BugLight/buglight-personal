@@ -1,4 +1,5 @@
 const express = require('express'),
+    passport = require('passport'),
     mongoose = require('mongoose'),
     {Service, Work} = require('./models'),
     router = express.Router();
@@ -108,6 +109,10 @@ router.delete('/works/:id', function (req, res) {
             });
         }
     });
+});
+
+router.post('/login', passport.authenticate('local'), function (req, res) {
+    res.send(200);
 });
 
 module.exports = router;
