@@ -6,9 +6,7 @@ const express = require('express'),
     session = require('express-session'),
     app = express();
 
-app.set('views', './views');
-app.set('view engine', 'pug');
-
+app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(session({
