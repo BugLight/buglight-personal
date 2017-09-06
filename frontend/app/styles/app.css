@@ -19,6 +19,16 @@ body {
     align-items: center;
 }
 
+.nav-link {
+    cursor: pointer;
+    transition: all .5s ease-out;
+    border-bottom: 2px solid #343a40;
+}
+
+.nav-link:hover {
+    border-bottom-color: #fff;
+}
+
 .big-image {
     background-image: url(/assets/images/background.svg);
     background-size: cover;
@@ -34,6 +44,21 @@ body {
 
 .btn {
     cursor: pointer;
+}
+
+.btn-outline-purple {
+    border-color: #825287;
+    color: #aa68a5;
+    background-color: transparent;
+}
+
+.btn-outline-purple:hover {
+    color: #fff;
+    background-color: #825287;
+}
+
+.btn-outline-purple:focus {
+    box-shadow: none;
 }
 
 @media (max-width: 900px) {
