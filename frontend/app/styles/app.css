@@ -1,0 +1,44 @@
+@import "http://fonts.fontstorage.com/import/roboto.css";
+
+html, body, .ember-view {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-dark {
+    color: #fff;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.big-image {
+    background-image: url(/assets/images/background.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100%;
+    padding-top: 70px;
+    padding-left: 150px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .big-image {
+        padding-left: 0;
+        min-height: 80%;
+    }
+}
