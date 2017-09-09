@@ -13,6 +13,9 @@ This is the easiest way.
 1. Install node.js
 2. Install dependencies `npm i`
 3. As in previous guide configure environment
-4. You need to run mongodb locally (don't forget to change db host in `app.env`)
-5. Run `npm start`
-6. [localhost:3000](http://localhost:3000)
+4. You need to run mongodb locally (don't forget to change db host)
+5. Goto `/frontend` and repeat *2nd step*
+6. Additionally install ember-cli `npm i -g ember-cli`
+7. Build frontend using `ember build` and copy to `/public` dir
+8. Run `npm start`
+9. [localhost:3000](http://localhost:3000)
